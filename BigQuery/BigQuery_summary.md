@@ -55,6 +55,38 @@ Some of the challenges w.r.t. stream data are:
 ---
 ## EDA with BigQuery
 
+__Check NULL in features__
+```sql
+SELECT
+  COUNTIF (feature_1 IS NULL) AS feature_1_null_counts
+FROM
+  'dataset_name.table_name'
+```
+
+__Check for duplicate record__
+```sql
+SELECT
+  feature_1,
+  COUNT(*) AS frequency
+FROM
+  'dataset_name.table_name'
+GROUP BY
+  feature_1
+HAVING
+  COUNT(*) > 1;
+```
+
+__Check for error in values (for this example we assume feature_1 cannot take a negative value)
+```sql
+SELECT
+  feature_1
+FROM
+  'dataset_name.table_name'
+WHERE
+  feature_1 >= 0;
+```
+
+__Check for outliers__
 
 ---
 ## ML with BigQuery
