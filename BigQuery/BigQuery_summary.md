@@ -111,9 +111,18 @@ ORDER BY
 __Check for integrity (here we check if all values for feature_1 are available in both table_1 and table_2__
 ```sql
 SELECT
-  
-
+  t1.feature_1,
+  t2_feature_1
+FROM
+  'dataset_name.table_name_1' t1
+LEFT JOIN
+  'dataset_name.table_name_2' t1
+ON
+  t1.feature_1 = t2_feature_1
+WHERE
+  t2.feature_1 IS NULL
 ```
+
 __Check if value is valid w/ regular expression (checking if all the values for feature_1 consists of two capital letters)__
 ```sql
 SELECT
@@ -121,7 +130,7 @@ SELECT
 FROM
   'dataset_name.table_name'
 WHERE
-  LENGTH(feature_1) != 2 OR NOT REGEXP_CONTAINS(feature_1, r'[A-Z]{2}'); -- check if all values in feature_1 are exactly 2 uppercase letters
+  LENGTH(feature_1) != 2 OR NOT REGEXP_CONTAINS(feature_1, r'^[A-Z]{2}'); -- check if all values in feature_1 are exactly 2 uppercase letters
 ```
 
 
