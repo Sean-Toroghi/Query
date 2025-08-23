@@ -35,7 +35,13 @@ BigQuery could also perform data quality check, including:
 
 ## Data ingestion
 ### Batch data ingestion
-BigQuery supports multiple data formats, including CSV, JSON, Parquet, ORC, Avor, and Iceberg. It also supports data transfer from multiple sources, including google cloud, Oracle, Salesforce, google merchant center, and ServiceNow.
+BigQuery supports multiple data formats, including CSV, JSON, Parquet, ORC, Avor, and Iceberg. It also supports data transfer from multiple sources, including google cloud, Oracle, Salesforce, google merchant center, and ServiceNow. BigQuery also supports federated query from sources such as cloud SQL and cloud Spanner.
+
+
+Example: load data
+```sql
+
+```
 
 
 
