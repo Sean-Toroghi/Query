@@ -7,17 +7,34 @@ Summary, notes, and code repository.
 
 ## Overview
 
-__Datasets__
+### Datasets
 
 There are three major forms of datasets in BigQuery: tables, views, and models.
 
-__Tables__
+Table structure comes in two formats: Row-wise and columair formats. Google has its own proprietary columnar sotrage format called _Capacitor_ format. It uses several compressing (encoding) techniques, and supports for nested and repeated fields[^1]. Also BigQuery supposts data partitioning and clustering, which not only reduces the costs, but also optimizes the performance for filtering and aggregating data.
 
-Table structure comes in two formats: Row-wise and columair formats. Google has its own proprietary columnar sotrage format called _Capacitor_ format. It uses several compressing (encoding) techniques, and supports for nested and repeated fields[^1]. 
+### Data engineering and machine learning
+BigQuery communicates with Spark, including `pyspark`.
+Example:
+```python
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.appName("BigQuery with Spark").config("spark.jars.package").getOrCreate()
+
+df = spark.read.format("bigiquery").option("table", "dataset.table_1").load()
+
+```
+BigQuery could also perform data quality check, including:
+- count verification
+- value range check
+- null value check
+- duplicate record check
+- outlier check
+- referential integrity check
 
 
+---
 
-    
-__References:__
-
+__References__
 [^1]: [Inside Capacitor, BigQuery’s next-generation columnar storage format, by Pasumansky - 2016](https://cloud.google.com/blog/products/bigquery/inside-capacitor-bigquerys-next-generation-columnar-storage-format). 
+
+
