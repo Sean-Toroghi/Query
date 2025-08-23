@@ -33,7 +33,10 @@ BigQuery could also perform data quality check, including:
 
 ---
 
-## Data ingestion
+## Data ingestion 
+
+Two major types of data that can be used in BigQuery are batch data and stream data.
+
 ### Batch data ingestion
 BigQuery supports multiple data formats, including CSV, JSON, Parquet, ORC, Avor, and Iceberg. It also supports data transfer from multiple sources, including google cloud, Oracle, Salesforce, google merchant center, and ServiceNow. BigQuery also supports federated query from sources such as cloud SQL and cloud Spanner.
 
@@ -42,8 +45,26 @@ Example: load data. Steps for loading a data is as following:
 - Under the project, select "create a dataset"
 - Under the dataset, choose "create table"
 
+### Stream data
+Some of the challenges w.r.t. stream data are:
+- late arrival, caused by window aggregation, state management, or data watermarks,
+- muliple time stamps, due to different event time, ingestion time, or processing time
+- how processing: exactly once, or at least once
 
 
+---
+## EDA with BigQuery
+
+
+---
+## ML with BigQuery
+
+---
+### Example - classification model
+
+### Example - regression model
+
+### Example: tune series forecsting model
 
 ---
 
