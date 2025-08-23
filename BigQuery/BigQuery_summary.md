@@ -38,10 +38,10 @@ BigQuery could also perform data quality check, including:
 BigQuery supports multiple data formats, including CSV, JSON, Parquet, ORC, Avor, and Iceberg. It also supports data transfer from multiple sources, including google cloud, Oracle, Salesforce, google merchant center, and ServiceNow. BigQuery also supports federated query from sources such as cloud SQL and cloud Spanner.
 
 
-Example: load data
-```sql
+Example: load data. Steps for loading a data is as following:
+- Under the project, select "create a dataset"
+- Under the dataset, choose "create table"
 
-```
 
 
 
