@@ -76,17 +76,55 @@ HAVING
   COUNT(*) > 1;
 ```
 
-__Check for error in values (for this example we assume feature_1 cannot take a negative value)
+__Check for error in values (for this example we assume feature_1 cannot take a negative value)__
 ```sql
 SELECT
   feature_1
 FROM
   'dataset_name.table_name'
 WHERE
-  feature_1 >= 0;
+  feature_1 < 0;
 ```
 
 __Check for outliers__
+```sql
+SELECT
+  feature_1
+FROM
+  'dataset_name.table_name'
+WHERE
+  feature_1 >= 1000000;
+```
+__Check for number of values for each category in feature_1 (similar to `value_count()` function)__
+```sql
+SELECT
+  feature_1,
+  COUNT(*) AS count_per_category
+FROM
+  'dataset_name.table_name'
+GROUP BY
+  feature_1
+ORDER BY
+  feature_1  
+```
+
+__Check for integrity (here we check if all values for feature_1 are available in both table_1 and table_2__
+```sql
+SELECT
+  
+
+```
+__Check if value is valid w/ regular expression (checking if all the values for feature_1 consists of two capital letters)__
+```sql
+SELECT
+  feature_1
+FROM
+  'dataset_name.table_name'
+WHERE
+  LENGTH(feature_1) != 2 OR NOT REGEXP_CONTAINS(feature_1, r'[A-Z]{2}'); -- check if all values in feature_1 are exactly 2 uppercase letters
+```
+
+
 
 ---
 ## ML with BigQuery
