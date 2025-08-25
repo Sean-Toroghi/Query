@@ -138,6 +138,29 @@ WHERE
 ---
 ## ML with BigQuery
 
+Google implemented `bigframes`, which provides a platform similar to Pandas in its BigQuery product.
+
+EXample - Load data via bigquery pandas:
+```python
+import bigframes.pandas as bpd
+from goolge.cloud import bigquery
+
+# define table_id and load data
+def load_data(project_id, dataset_name, table_name):
+  '''
+  Return google bigframe dataframe, given project id, dataset name, and table name: load_data(project_id, dataset_name, table_name)
+  '''
+  table_id = f"{project_id}.{dataset_name}.{table_name}"
+  # load data into bigframe
+  try:
+    data_df = bpd.read_gbq(table_id)
+    return data_df
+  except:
+    print(f"Error in processing the {table_id}!")
+    return None
+```
+
+
 ---
 ### Example - classification model
 
