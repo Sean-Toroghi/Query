@@ -140,7 +140,10 @@ WHERE
 
 Google implemented `bigframes`, which provides a platform similar to Pandas in its BigQuery product.
 
-EXample - Load data via bigquery pandas:
+EXample - Perform the following tasks:
+- Load data via bigquery pandas
+- retrieve table schema, using google bigquery
+- Generate statistic descriptives for numeric features
 ```python
 import bigframes.pandas as bpd
 from goolge.cloud import bigquery
@@ -148,16 +151,25 @@ from goolge.cloud import bigquery
 # define table_id and load data
 def load_data(project_id, dataset_name, table_name):
   '''
-  Return google bigframe dataframe, given project id, dataset name, and table name: load_data(project_id, dataset_name, table_name)
+  Return google bigframe dataframe, given project id, dataset name, and table name:
+    load_data(project_id, dataset_name, table_name)
   '''
   table_id = f"{project_id}.{dataset_name}.{table_name}"
   # load data into bigframe
   try:
     data_df = bpd.read_gbq(table_id)
     return data_df
-  except:
-    print(f"Error in processing the {table_id}!")
+  except Exception as e:
+    print(f"Error in processing the {table_id}: {e}")
     return None
+```
+
+Example: retrieve table schema, using google bigquery
+```python
+import bigframes.pandas as bpd
+from goolge.cloud import bigquery
+def get_schema(project_id, dataset_name, table_name):
+  table_id = pd
 ```
 
 
