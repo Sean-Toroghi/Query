@@ -7,6 +7,13 @@ Summary, notes, and code repository.
 
 ## Overview
 
+BigQuery is a 
+- serverless: no local overhead
+- scalable: manage big data
+- multi-cloud: secure and efficient
+- data warehouse: 
+service system.
+
 ### Datasets
 
 There are three major forms of datasets in BigQuery: tables, views, and models.
