@@ -12,9 +12,9 @@ BigQuery is a
 - scalable: manage big data
 - multi-cloud: secure and efficient
 - data warehouse: 
-service system.
+service system. It is the public implementation of Dremel, an internal technogoy of Google. Dremol is a distributed system developed by Google to run interactive, ad-hoc queries over massive datasets.
 
-### Datasets
+### Datasets in BigQuery
 
 There are three major forms of datasets in BigQuery: tables, views, and models.
 
@@ -40,23 +40,32 @@ BigQuery could also perform data quality check, including:
 
 ---
 
-## Data ingestion 
+## Data in Bigquery 
+
+__Table in BigQuery__
+
+BigQuery has three types of table:  
+- native
+- external
+- views
+
+__Data ingestion in BigQuery__
 
 Two major types of data that can be used in BigQuery are batch data and stream data.
+1. __Batch data ingestion__
 
-### Batch data ingestion
-BigQuery supports multiple data formats, including CSV, JSON, Parquet, ORC, Avor, and Iceberg. It also supports data transfer from multiple sources, including google cloud, Oracle, Salesforce, google merchant center, and ServiceNow. BigQuery also supports federated query from sources such as cloud SQL and cloud Spanner.
+  BigQuery supports multiple data formats, including CSV, JSON, Parquet, ORC, Avor, and Iceberg. It also supports data transfer from multiple sources, including google cloud, Oracle, Salesforce, google merchant center, and ServiceNow. BigQuery also supports federated query from sources such as cloud SQL and cloud Spanner.
+  
+  
+  Example: load data. Steps for loading a data is as following:
+  - Under the project, select "create a dataset"
+  - Under the dataset, choose "create table"
 
-
-Example: load data. Steps for loading a data is as following:
-- Under the project, select "create a dataset"
-- Under the dataset, choose "create table"
-
-### Stream data
-Some of the challenges w.r.t. stream data are:
-- late arrival, caused by window aggregation, state management, or data watermarks,
-- muliple time stamps, due to different event time, ingestion time, or processing time
-- how processing: exactly once, or at least once
+2.  __Stream data__
+  Some of the challenges w.r.t. stream data are:
+  - late arrival, caused by window aggregation, state management, or data watermarks,
+  - muliple time stamps, due to different event time, ingestion time, or processing time
+  - how processing: exactly once, or at least once
 
 
 ---
