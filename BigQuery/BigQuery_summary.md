@@ -82,75 +82,75 @@ __Some examples__
       'dataset_name.table_name'
     ```
 
-__Check for duplicate record__
-```sql
-SELECT
-  feature_1,
-  COUNT(*) AS frequency
-FROM
-  'dataset_name.table_name'
-GROUP BY
-  feature_1
-HAVING
-  COUNT(*) > 1;
-```
+- __Check for duplicate record__
+    ```sql
+    SELECT
+      feature_1,
+      COUNT(*) AS frequency
+    FROM
+      'dataset_name.table_name'
+    GROUP BY
+      feature_1
+    HAVING
+      COUNT(*) > 1;
+    ```
 
-__Check for error in values (for this example we assume feature_1 cannot take a negative value)__
-```sql
-SELECT
-  feature_1
-FROM
-  'dataset_name.table_name'
-WHERE
-  feature_1 < 0;
-```
+- __Check for error in values (for this example we assume feature_1 cannot take a negative value)__
+    ```sql
+    SELECT
+      feature_1
+    FROM
+      'dataset_name.table_name'
+    WHERE
+      feature_1 < 0;
+    ```
 
-__Check for outliers__
-```sql
-SELECT
-  feature_1
-FROM
-  'dataset_name.table_name'
-WHERE
-  feature_1 >= 1000000;
-```
-__Check for number of values for each category in feature_1 (similar to `value_count()` function)__
-```sql
-SELECT
-  feature_1,
-  COUNT(*) AS count_per_category
-FROM
-  'dataset_name.table_name'
-GROUP BY
-  feature_1
-ORDER BY
-  feature_1  
-```
+- __Check for outliers__
+    ```sql
+    SELECT
+      feature_1
+    FROM
+      'dataset_name.table_name'
+    WHERE
+      feature_1 >= 1000000;
+    ```
+- __Check for number of values for each category in feature_1 (similar to `value_count()` function)__
+    ```sql
+    SELECT
+      feature_1,
+      COUNT(*) AS count_per_category
+    FROM
+      'dataset_name.table_name'
+    GROUP BY
+      feature_1
+    ORDER BY
+      feature_1  
+    ```
 
-__Check for integrity (here we check if all values for feature_1 are available in both table_1 and table_2__
-```sql
-SELECT
-  t1.feature_1,
-  t2_feature_1
-FROM
-  'dataset_name.table_name_1' t1
-LEFT JOIN
-  'dataset_name.table_name_2' t1
-ON
-  t1.feature_1 = t2_feature_1
-WHERE
-  t2.feature_1 IS NULL
-```
+- __Check for integrity (here we check if all values for feature_1 are available in both table_1 and table_2__
+    ```sql
+    SELECT
+      t1.feature_1,
+      t2_feature_1
+    FROM
+      'dataset_name.table_name_1' t1
+    LEFT JOIN
+      'dataset_name.table_name_2' t1
+    ON
+      t1.feature_1 = t2_feature_1
+    WHERE
+      t2.feature_1 IS NULL
+    ```
 
-__Check if value is valid w/ regular expression (checking if all the values for feature_1 consists of two capital letters)__
-```sql
-SELECT
-  feature_1
-FROM
-  'dataset_name.table_name'
-WHERE
-  LENGTH(feature_1) != 2 OR NOT REGEXP_CONTAINS(feature_1, r'^[A-Z]{2}'); -- check if all values in feature_1 are exactly 2 uppercase letters
-```
+- __Check if value is valid w/ regular expression (checking if all the values for feature_1 consists of two capital letters)__
+    ```sql
+    SELECT
+      feature_1
+    FROM
+      'dataset_name.table_name'
+    WHERE
+      LENGTH(feature_1) != 2 OR NOT REGEXP_CONTAINS(feature_1, r'^[A-Z]{2}'); -- check if all values in feature_1 are exactly 2 uppercase letters
+    ```
 
 
 
@@ -159,7 +159,7 @@ WHERE
 
 Google implemented `bigframes`, which provides a platform similar to Pandas in its BigQuery product.
 
-EXample - Perform the following tasks:
+__Example 1 - Perform the following tasks__
 - Load data via bigquery pandas
 - retrieve table schema, using google bigquery
 - Generate statistic descriptives for numeric features
@@ -183,7 +183,7 @@ def load_data(project_id, dataset_name, table_name):
     return None
 ```
 
-Example: retrieve table schema, using google bigquery
+__Example 2: retrieve table schema, using google bigquery__
 ```python
 import bigframes.pandas as bpd
 from goolge.cloud import bigquery
@@ -193,11 +193,11 @@ def get_schema(project_id, dataset_name, table_name):
 
 
 ---
-### Example - classification model
+__Example 3 - classification model__
 
-### Example - regression model
+__Example 4 - regression model__
 
-### Example: tune series forecsting model
+__Example 5 - tune series forecsting model__
 
 ---
 
