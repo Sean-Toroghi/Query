@@ -74,13 +74,13 @@ Two major types of data that can be used in BigQuery are batch data and stream d
 
 __Some examples__
 
-__Check NULL in features__
-```sql
-SELECT
-  COUNTIF (feature_1 IS NULL) AS feature_1_null_counts
-FROM
-  'dataset_name.table_name'
-```
+- __Check NULL in features__
+    ```sql
+    SELECT
+      COUNTIF (feature_1 IS NULL) AS feature_1_null_counts
+    FROM
+      'dataset_name.table_name'
+    ```
 
 __Check for duplicate record__
 ```sql
