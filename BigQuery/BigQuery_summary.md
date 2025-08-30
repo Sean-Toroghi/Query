@@ -71,6 +71,9 @@ Two major types of data that can be used in BigQuery are batch data and stream d
 ---
 ## EDA with BigQuery
 
+
+__Some examples__
+
 __Check NULL in features__
 ```sql
 SELECT
